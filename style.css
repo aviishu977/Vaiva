@@ -455,6 +455,9 @@ hr {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px); /* აი აქ ხდება ბლარი */
+  -webkit-backdrop-filter: blur(20px); /* Safari-ისთვის */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -794,6 +797,7 @@ hr {
   .nav-links button span:last-child {
     display: inline;
   }
+  
 }
 
 /* Landing Page Section - First */
@@ -809,10 +813,13 @@ hr {
 
 .first-title {
   width: 50%;
+
 }
 
 .first-title h1 {
   color: #000000;
+  font-size: 50px ;
+  margin: 0;
 }
 
 .first-btn {
@@ -847,6 +854,7 @@ hr {
   background: #f2f4f7;
   color: #000000;
   border: 2px solid #000000;
+  box-shadow: 0px 5px 0px black;
 }
 
 /* Mobile & Smaller Screens */
@@ -880,6 +888,8 @@ hr {
     width: 98%;
     max-width: 400px;
     overflow-y: auto;
+    backdrop-filter: blur(20px); /* აი აქ ხდება ბლარი */
+  -webkit-backdrop-filter: blur(20px); /* Safari-ისთვის */
     max-height: 90vh;
   }
   
@@ -926,13 +936,13 @@ hr {
   .first-title {
     width: 100%;
     height: 200px;
-    margin-top: 50px;
+    margin-top: 0px;
     text-align: center;
   }
 
   .first-title h1 {
     color: #000000;
-    font-size: 30px;
+    font-size: 50px;
   }
 
   .first-title h2 {
@@ -954,12 +964,13 @@ hr {
     width: 250px;
     height: 60px;
     border-radius: 10px;
-    border: none;
-    background: #000000;
-    color: #ffffff;
+    border: 2px solid black;
+    background: var(--bg-color);
+    color: black;
     font-size: 20px;
     margin-top: -60px;
     right: 0px;
+    box-shadow: 0px 5px 0px black;
   }
 
   #browse {
@@ -982,6 +993,8 @@ hr {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(20px); /* აი აქ ხდება ბლარი */
+  -webkit-backdrop-filter: blur(20px); /* Safari-ისთვის */
   justify-content: center;
   align-items: center;
 }
@@ -1025,17 +1038,31 @@ hr {
   list-style-type: disc;
 }
 .rule-btn {
-  background: #000;
-  color: #fff;
+  background: var(--bg-color) ;
+  color: black;
   padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
+  border: 2px solid black;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   margin-top: -20px;
+  box-shadow: 0px 5px 0px black;
 }
 .rul-con{
   width: 100%;
   height: auto;
   display: flex;
+}
+  .first-btn button{
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background: var(--bg-color);
+    color: black;
+    font-size: 20px;
+    margin-top: -50px;
+    right: 0px;
+    box-shadow: 0px 5px 0px black;
+  
   }
