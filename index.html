@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ტექსტური აუქციონი</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">
+            <img class="logo-img" src="https://i.postimg.cc/FscG8JtH/Picsart-25-08-06-00-12-39-605.jpg" alt="Biddly Logo">
+            Biddly
+        </a>
+        <div class="nav-and-actions">
+            <nav class="nav-links" id="nav-links">
+                <button class="btn-link active" id="dashboard-btn" aria-label="მთავარი გვერდი">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>მთავარი</span>
+                </button>
+                <button class="btn-link" id="create-auction-btn" aria-label="აუქციონის შექმნა">
+                    <span class="material-symbols-outlined">add_circle</span>
+                    <span>დამატება</span>
+                </button>
+                <button class="btn-link" id="user-panel-btn" aria-label="ჩემი აუქციონები">
+                    <span class="material-symbols-outlined">person</span>
+                    <span>ჩემი აუქციონები</span>
+                </button>
+            </nav>
+            <div class="user-actions" id="user-actions">
+                <span class="user-name" id="user-name"></span>
+                <button class="btn btn-outline" id="logout-btn">გასვლა</button>
+            </div>
+            <div class="user-actions" id="guest-actions">
+                <button class="btn btn-primary" id="login-btn">რეგისტრაცია</button>
+                <button class="btn btn-secondary" id="register-btn">რეგისტრაცია</button>
+            </div>
+        </div>
+        <button class="burger-menu" id="burger-menu" aria-label="მობილური მენიუს გახსნა">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </header>
+
+    <div id="mobile-menu" class="mobile-menu">
+        <div id="mobile-nav-content">
+            <nav class="mobile-nav-links">
+                <button class="btn-link active" id="mobile-dashboard-btn" aria-label="მთავარი გვერდი">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>მთავარი</span>
+                </button>
+                <button class="btn-link" id="mobile-create-auction-btn" aria-label="აუქციონის შექმნა">
+                    <span class="material-symbols-outlined">add_circle</span>
+                    <span>აუქციონის შექმნა</span>
+                </button>
+                <button class="btn-link" id="mobile-user-panel-btn" aria-label="ჩემი აუქციონები">
+                    <span class="material-symbols-outlined">person</span>
+                    <span>ჩემი აუქციონები</span>
+                </button>
+            </nav>
+            <br><br>
+            <div class="mobile-user-actions" id="mobile-user-actions">
+                <span class="user-name" id="mobile-user-name"></span>
+                <button class="btn btn-outline" id="mobile-logout-btn">გასვლა</button>
+            </div>
+            <div class="mobile-user-actions" id="mobile-guest-actions">
+                <button class="btn btn-primary" id="mobile-login-btn">რეგისტრაცია</button>
+                <button class="btn btn-secondary" id="mobile-register-btn">შესვლა</button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+    <main>
+        <section id="dashboard-view">
+            <div class="first">
+                <div class="first-title">
+                    <h1>მოგესალმებით Biddlys-ის აუქციონზე</h1>
+                    <h2>Biddlys - ის აუქციონი არის სივრცე, სადაც ყოველი ბიდი არ არის უბრალოდ ციფრი — ის არის ნაბიჯი გამარჯვებისკენ.</h2>
+                </div>
+                <div class="first-btn">
+                    <button id="create-auc-fisrt">
+                        შექმენი აუქციონი
+                    </button>
+                    <br><br>
+                    <a href="#la-hr">
+                        <button id="browse">
+                            ნახე აუქციონები
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <hr id="la-hr"><br><br>
+            <div class="auc-ti">
+            <h2>მიმდინარე აუქციონები</h2>
+            </div>
+            
+            <div class="dashboard-header">
+                <input type="text" id="search-input" class="search-bar" placeholder="ძებნა სათაურით ან აღწერით...">
+            </div>
+            
+            <div id="auction-list" class="dashboard-grid">
+                <div class="empty-state" id="empty-dashboard">
+                    <span class="material-symbols-outlined">hourglass_empty</span>
+                    <p>ამჟამად აქტიური აუქციონები არ არის. იყავით პირველი!</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="user-panel-view" style="display: none;">
+            <h2>ჩემი აუქციონები & ფსონები</h2>
+            <div id="user-panel-content">
+                <div class="empty-state" id="empty-user-panel">
+                    <span class="material-symbols-outlined">person_off</span>
+                    <p>თქვენ არ შეგიქმნიათ აუქციონი ან არ დაგიდიათ ფსონი.</p>
+                </div>
+                <div id="my-auctions-container"></div>
+                <div id="my-bids-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="auth-close-btn" aria-label="დახურვა">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h3 id="auth-title"></h3>
+            <div id="auth-alert-container"></div>
+            <form id="auth-form">
+                <div class="form-group" id="name-fields" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="auth-first-name">სახელი</label>
+                            <input type="text" id="auth-first-name" name="first-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="auth-last-name">გვარი</label>
+                            <input type="text" id="auth-last-name" name="last-name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="auth-phone-number">ტელეფონის ნომერი</label>
+                        <input type="tel" id="auth-phone-number" name="phone-number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="auth-email">ელ.ფოსტა</label>
+                    <input type="email" id="auth-email" name="email" required>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="auth-password">პაროლი</label>
+                    <input type="password" id="auth-password" name="password" required>
+                    <div class="error-message" id="password-error"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="auth-submit-btn"></button>
+            </form>
+            <p style="text-align: center; margin-top: 1.5rem;">
+                <button class="btn-link" id="auth-toggle-btn"></button>
+            </p>
+        </div>
+    </div>
+
+    <div id="create-auction-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="create-auction-close-btn" aria-label="დახურვა">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h3>ახალი აუქციონის შექმნა</h3>
+            <div id="create-auction-alert-container"></div>
+            <form id="create-auction-form">
+                <div class="form-group">
+                    <label for="auction-title">სათაური</label>
+                    <input type="text" id="auction-title" name="title" required>
+                    <div class="error-message" id="title-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="auction-description">აღწერა</label>
+                    <textarea id="auction-description" name="description" rows="4" required></textarea>
+                    <div class="error-message" id="description-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="auction-price">საწყისი ფასი (₾)</label>
+                    <input type="number" id="auction-price" name="price" min="0" step="0.01" required>
+                    <div class="error-message" id="price-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="auction-duration">ხანგრძლივობა (წუთებში)</label>
+                    <input type="number" id="auction-duration" name="duration" min="1" required>
+                    <div class="error-message" id="duration-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="contact-name">საკონტაქტო სახელი</label>
+                    <input type="text" id="contact-name" name="contact-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-info">საკონტაქტო ინფორმაცია (მაგ. ტელეფონი, სოციალური ქსელი)</label>
+                    <input type="text" id="contact-info" name="contact-info" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">აუქციონის შექმნა</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="notifications" style="position: fixed; bottom: 1.5rem; right: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 3000;"></div>
+
+    <style>
+        #global-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease;
+            flex-direction: column;
+        }
+
+        .spinner-wavy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 17px;
+            margin-top: -100px;
+        }
+
+        .wavy-line {
+            width: 13px;
+            height: 40px;
+            background-color: black;
+            animation: wave 1s infinite ease-in-out;
+            border-radius: 2px;
+        }
+
+        .wavy-line:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        .wavy-line:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+        .wavy-line:nth-child(4) {
+            animation-delay: -0.6s;
+        }
+
+        .wavy-line:nth-child(5) {
+            animation-delay: -0.8s;
+        }
+
+        @keyframes wave {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+            }
+            20% {
+                transform: scaleY(1);
+            }
+        }
+
+        .loader-text {
+            margin-top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+        }
+
+        #global-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+
+    <script>
+        // Create the loader element and append it to the body
+        const loaderDiv = document.createElement('div');
+        loaderDiv.id = 'global-loader';
+        loaderDiv.innerHTML = `
+            <div style="text-align: center;">
+                <div class="spinner-wavy">
+                    <div class="wavy-line"></div>
+                    <div class="wavy-line"></div>
+                    <div class="wavy-line"></div>
+                    <div class="wavy-line"></div>
+                    <div class="wavy-line"></div>
+                </div>
+                <div class="loader-text">B I D D L Y</div>
+            </div>
+        `;
+        document.body.appendChild(loaderDiv);
+
+        let minTimePassed = false;
+        let fullyLoaded = false;
+
+        // Ensure loader is shown for at least 100ms
+        setTimeout(() => {
+            minTimePassed = true;
+            if (fullyLoaded) hideLoader();
+        }, 3000);
+
+        // Hide loader once all resources are loaded
+        window.addEventListener('load', () => {
+            fullyLoaded = true;
+            if (minTimePassed) hideLoader();
+        });
+
+        // Function to hide the loader
+        function hideLoader() {
+            const loader = document.getElementById('global-loader');
+            if (loader) loader.classList.add('hidden');
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
