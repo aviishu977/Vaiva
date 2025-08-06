@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biddlys • აუქციონი</title>
+        <title>Biddlys • აუქციონი</title>
     <link rel="icon" type="image/jpg" href="https://i.postimg.cc/Kcft87tx/Picsart-25-08-06-00-12-39-605.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -17,7 +17,7 @@
     <header class="header">
         <a href="#" class="logo">
             <img class="logo-img" src="https://i.postimg.cc/FscG8JtH/Picsart-25-08-06-00-12-39-605.jpg" alt="Biddly Logo">
-            Biddly
+            Biddlys
         </a>
         <div class="nav-and-actions">
             <nav class="nav-links" id="nav-links">
@@ -79,21 +79,37 @@
 
     <main>
         <section id="dashboard-view">
+            <div class="rul-con">
+                            <button class="rule-btn" onclick="toggleRules()">მნიშვნელოვანი წესები</button>
+            </div>
+            <!-- წესების ღილაკი -->
+<!-- წესების მოდალური ფანჯარა -->
+<div id="rules-modal" class="rules-overlay">
+  <div class="rules-content">
+    <span class="rules-close" onclick="toggleRules()">&times;</span>
+    <h2>საიტის წესები</h2>
+    <ul>
+      <li>იკრძალება სპამი ან ნებისმიერი სხვა ყალბი აუქციონი.</li>
+      <li>კონკრეტული აუქციონის განთავსება ხდება მომხმარებლის მიერ, და ადმინისტრაცია არ იღებს პასუხისმგებლობას მყიდველსა და გამყიდველს შორის არსებულ შეთანხმებაზე.</li>
+      <li>ადმინისტრაცია არ ერევა აუქციონის მიმდინარეობაში, თუკი ის არ არღვევს საიტის წესებს.</li>
+      <li>საიტი არ აგებს პასუხს ორ ფიზიკურ პირს შორის დადებული შეთანხმებიდან გამომდინარე ფულადი ანგარიშსწორების ან ნივთის გადაცემის ვალდებულებაზე.</li>
+    </ul>
+  </div>
+</div>
             <div class="first">
                 <div class="first-title">
                     <h1>მოგესალმებით Biddlys-ის აუქციონზე</h1>
                     <h2>Biddlys - ის აუქციონი არის სივრცე, სადაც ყოველი ბიდი არ არის უბრალოდ ციფრი — ის არის ნაბიჯი გამარჯვებისკენ.</h2>
                 </div>
                 <div class="first-btn">
-                    <button id="create-auc-fisrt">
-                        შექმენი აუქციონი
+                    <button id="create-auc-fisrt"><span style="font-size: 25px;" class="material-symbols-outlined">add_circle</span>შექმენი აუქციონი
                     </button>
-                    <br><br>
+                    <br><br><br>
                     <a href="#la-hr">
-                        <button id="browse">
-                            ნახე აუქციონები
+                        <button id="browse"> <span>➭</span>ნახე აუქციონები
                         </button>
                     </a>
+                    
                 </div>
             </div>
 
@@ -321,7 +337,12 @@
             if (loader) loader.classList.add('hidden');
         }
     </script>
-
+<script>
+function toggleRules() {
+  const modal = document.getElementById("rules-modal");
+  modal.style.display = (modal.style.display === "flex") ? "none" : "flex";
+}
+</script>
     <script type="module" src="script.js"></script>
 </body>
 </html>
